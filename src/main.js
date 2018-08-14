@@ -3,15 +3,22 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import {store} from './store/store';
 
-Vue.config.productionTip = false;
+// Import custom axios plugin
+import axiosPlugin from './axios-plugin';
 
-export const bus = new Vue();
+// Make custom axios plugin available in .vue components
+Vue.use(axiosPlugin);
+
+
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store,
 })
