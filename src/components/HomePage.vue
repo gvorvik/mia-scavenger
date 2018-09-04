@@ -3,7 +3,7 @@
     <navbar></navbar>
     <img src="./../assets/logo.png" alt="user" id="user-photo">
     <h1>Hello {{user.userName}}</h1>
-    <button>Plan a Trip</button>
+    <button @click="planTrip">Plan a Trip</button>
     <button>Past Trips</button>
     <button>Pre-curated Trips</button>
   </div>
@@ -20,6 +20,11 @@ export default {
   },
   components: {
     Navbar,
+  },
+  methods: {
+    planTrip() {
+      this.$router.push({name: 'PlanTrip'});
+    },
   },
   data () {
     return {

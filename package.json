@@ -2,7 +2,7 @@
   "name": "mia-scavenger",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Greg Orvik and Zeeshan Dawood and Bailey Smith-Dewey",
+  "author": "Greg Orvik, Zeeshan Dawood, Jacob Albright and Bailey Smith-Dewey",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -12,12 +12,16 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
-    "dotenv": "^6.0.0",
+    "connect-history-api-fallback": "^1.5.0",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "material-design-icons-iconfont": "^3.0.3",
     "pg": "^7.4.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.2.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -33,6 +37,7 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
+    "dotenv": "^6.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",

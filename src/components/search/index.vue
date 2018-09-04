@@ -1,22 +1,56 @@
 <template>
-  <div>
-    <AppSearchForm />
-    <AppSearchResults />
-  </div>
+  <v-container>
+    <v-layout>
+      <v-flex>
+        <router-view></router-view>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import AppSearchForm from './SearchForm'
-import AppSearchResults from './SearchResults'
+import { mapState } from 'vuex'
 export default {
+  data() {
+    return {
+      alert: 0,
+      alertMsg: '',
+      alertVariant: ''
+    }
+  },
   components: {
-    AppSearchForm,
-    AppSearchResults
+    AppNavBar,
+  },
+  computed: {
+    ...mapState('art', ['errorMsg', 'successMsg'])
+  },
+  methods: {
+    showAlert(variant, msg, duration) {
+      this.alert = duration;
+      this.alertVariant = variant;
+      this.alertMsg = msg;
+    },
+  },
+  watch: {
+    errorMsg(val) {
+      if (val) {
+        this.showAlert('danger', val, 5);
+      }
+    },
+    successMsg(val) {
+      if (val) {
+        this.showAlert('success', val, 2);
+      }
+    }
   }
-
 }
 </script>
 
-<style>
+<style scoped>
+
+#alert {
+  display: block;
+  position: fixed;
+}
 
 </style>
