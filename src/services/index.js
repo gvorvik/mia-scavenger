@@ -24,7 +24,6 @@ export const user = {
       });
   },
   getUserPlaylists({ id }) {
-    console.log('get user playlists ran');
     return api.get(`/user/playlists/${id}`)
       .then(response => response)
       .catch(err => {
@@ -40,7 +39,7 @@ export const user = {
   },
   getBackgroundImage(){
     return api.get('art/random')
-    .then(response => response)
+      .then(response => response)
       .catch(err => {
         throw new Error(err);
       });
@@ -55,6 +54,7 @@ export const user = {
       });
   },
   saveUserPlaylist({ playlist_name, user_id, miapi_id }) {
+    console.log(playlist_name, user_id, miapi_id);
     return api.post('/user/playlist', { playlist_name, user_id, miapi_id })
       .then(response => response)
       .catch(err => {
@@ -71,8 +71,8 @@ export const user = {
       });
   },
 
-  updateUserPlaylistArt({ playlist_id, art_ids }) {
-    return api.patch('/user/playlist/art', { playlist_id, art_ids })
+  updateUserPlaylistArt({ playlist_id, art_id }) {
+    return api.patch('/user/playlist/art', { playlist_id, art_id })
       .then(response => response)
       .catch(err => {
         throw new Error(err);

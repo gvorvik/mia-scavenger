@@ -31,6 +31,7 @@ router.post('/art', async (req, res) => {
 router.post('/playlist', async (req, res) => {
   try {
     const result = await Create.userPlaylist(req.body);
+    console.log(result);
     result === 200
       ? res.sendStatus(200)
       : res.send(result);
@@ -114,6 +115,7 @@ router.patch('/playlist', async (req, res) => {
 
 router.patch('/playlist/art', async (req, res) => {
   try {
+    console.log(req.body);
     await Update.userPlaylistArt(req.body);
     res.sendStatus(200);
   } catch (err) {
@@ -139,6 +141,7 @@ router.delete('/art/:userId/:artId', async (req, res) => {
 router.delete('/playlist/:playlistId', async (req, res) => {
   try {
     await Delete.userPlaylist(req.params);
+    console.log(req.params);
     res.sendStatus(200);
   } catch (err) {
     res.sendStatus(500);
